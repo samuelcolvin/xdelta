@@ -1,4 +1,4 @@
-CFLAGS = -g -Wall -I.. -DXD3_DEBUG=1 -DNDEBUG=0 -DSIZEOF_SIZE_T=8 -DSIZEOF_UNSIGNED_LONG_LONG=8
+CFLAGS = -g -I.. -DXD3_DEBUG=1 -DNDEBUG=0 -DSIZEOF_SIZE_T=8 -DSIZEOF_UNSIGNED_LONG_LONG=8
 #CFLAGS = -O3 -Wall -I.. -DXD3_DEBUG=0 -fno-builtin -DNDEBUG=1
 # -pg
 
@@ -21,6 +21,9 @@ speed_test32: speed_test.c $(DEPS)
 
 speed_test64: speed_test.c $(DEPS)
 	$(CC) $(CFLAGS) -DXD3_USE_LARGEFILE64=1 speed_test.c -o speed_test64
+
+simple: simple.c $(DEPS)
+	$(CC) $(CFLAGS) -DXD3_USE_LARGEFILE64=1 simple.c -o simple
 
 compare_test: compare_test.c
 	$(CC) $(CFLAGS) compare_test.c -o compare_test
